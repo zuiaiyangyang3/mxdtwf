@@ -1,89 +1,379 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="zh-CN">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.9.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.9.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.9.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artale 相关链接</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                        tertiary: '#8B5CF6', // 新增颜色用于第三方按钮
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-      });
     </script>
-  </body>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .btn-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            .btn-hover {
+                transform: translateY(-1px);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+            .card {
+                @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+            }
+            .section-title {
+                @apply text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-6 flex items-center;
+            }
+            .section-title i {
+                @apply mr-3 text-primary;
+            }
+            .btn-tertiary {
+                @apply bg-tertiary hover:bg-tertiary/90 text-white transition-all duration-300 btn-shadow hover:btn-hover;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen font-inter text-dark">
+    <div class="container mx-auto px-4 py-12">
+        <!-- 头部标题 -->
+        <header class="text-center mb-16">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-4">Artale 相关链接</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">点击下方按钮访问不同的 Artale 相关平台和资源</p>
+            <strong>游戏运行推荐方式：</strong>打开电脑文件夹 <code>%LocalAppData%\Nexon\MapleStory Worlds</code>，找到
+                        <code>msw.exe</code> 右键以管理员身份运行，或发送到桌面快捷方式后右键管理员启动。
+        </header>
+
+        <!-- 按钮卡片区域 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 第三方交易平台卡片 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-shopping-bag"></i>
+                        第三方交易平台
+                    </h2>
+                    <p class="text-gray-600 mb-6">安全可靠的游戏资产交易平台</p>
+                    <a href="https://artale-market.org/" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-external-link mr-2"></i>前往交易平台
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第三方交易平台卡片 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-shopping-bag"></i>
+                        第三方交易平台2
+                    </h2>
+                    <p class="text-gray-600 mb-6">安全可靠的游戏资产交易平台2</p>
+                    <a href="https://artale.tw/shop.php" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-external-link mr-2"></i>前往交易平台2
+                    </a>
+                </div>
+            </div>
+
+            <!-- 数据库图集1卡片 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-database"></i>
+                        数据库图集1
+                    </h2>
+                    <p class="text-gray-600 mb-6">冒险岛世界怪物和装备详细数据</p>
+                    <a href="https://www.artale.cn/database.php" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-secondary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-book mr-2"></i>查看数据库
+                    </a>
+                </div>
+            </div>
+
+            <!-- 数据库图集2卡片 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-book"></i>
+                        数据库图集2
+                    </h2>
+                    <p class="text-gray-600 mb-6">老派冒险岛图书馆，多语言支持</p>
+                    <a href="https://osmlib.com/?locale=zh-TW" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-accent text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-language mr-2"></i>访问图书馆
+                    </a>
+                </div>
+            </div>
+
+            <!-- 怪物掉落参考 -->
+            <div class="card">
+                <div class="p-4">
+                    <h2 class="section-title">
+                        <i class="fa fa-external-link"></i>
+                        怪物掉落参考
+                    </h2>
+                    <p class="text-gray-600 mb-6">怪物掉落参考</p>
+                    <a href="https://a2983456456.github.io/artale-drop/" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-tertiary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-link mr-2"></i>点击查看
+                    </a>
+                </div>
+            </div>
+
+           
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-external-link"></i>
+                        梯子加速器(用于访问外网,游戏)
+                    </h2>
+                    <p class="text-gray-600 mb-5 leading-relaxed">
+                       梯子有风险,不排除跑路,不介意可以用我的邀请码:i4npwPJt,首次下单折扣码:88888,首月最低7.9元,之后9.9,每个月300G流量<br>
+                       推荐下载自带客户端,右上角设置全局模式,TUN代理模式打开,在点击加速
+                    </p>
+                     <a href="https://cokecloud.buyzur.com/#/register?code=i4npwPJt" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-tertiary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-link mr-2"></i><span id="uptime-days"></span>
+                    </a>
+                    <br>
+                 
+                    
+                </div>
+            </div>
+
+            <!-- 官方dc卡片 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-comments"></i>
+                        官方dc
+                    </h2>
+                    <p class="text-gray-600 mb-6">加入官方Discord服务器，获取最新资讯</p>
+                    <a href="https://discord.com/invite/pAQYfS2eE5" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-dark text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-discord mr-2"></i>加入Discord
+                    </a>
+                    <hr>
+                    <a href="https://discord.com/app" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-dark text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-discord mr-2"></i>进入Discord网页版
+                    </a>
+                    
+                </div>
+            </div>
+
+            <!-- 第经验识别工具 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-external-link"></i>
+                        经验识别工具
+                    </h2>
+                    <p class="text-gray-600 mb-6">截图识别,测试一分钟稳定多少经验,不会封号,日志,折线图</p>
+                    <a href="http://cloud.189.cn/t/bumaEbJvMn2q（访问码：n6wi）" target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-tertiary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-link mr-2"></i>点击下载经验工具（访问码：n6wi）
+                    </a>
+                </div>
+            </div>
+
+            <!-- 任务参考 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-external-link"></i>
+                        任务参考
+                    </h2>
+                    <p class="text-gray-600 mb-6">任务参考1</p>
+                    <a href="https://docs.google.com/document/d/1wkqFWsXN-UvPu5r84PWMDOQj8LyqmcflfeiXg5Tvcww/edit?tab=t.zb76jryckbst#heading=h.prnbkixgqfpf"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-tertiary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-link mr-2"></i>点击查看
+                    </a>
+                </div>
+            </div>
+
+            <!-- 任务参考 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-external-link"></i>
+                        任务参考2
+                    </h2>
+                    <p class="text-gray-600 mb-6">任务参考2</p>
+                    <a href=" https://docs.google.com/spreadsheets/d/1LtV7Fz8LPRoEQd311VfNxoMT7Z5A1zZzMyvs0TvQkBY/edit?gid=0#gid=0"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-tertiary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-link mr-2"></i>点击查看
+                    </a>
+                </div>
+            </div>
+
+            <!-- 常见问题卡片 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-question-circle"></i>
+                        常见问题
+                    </h2>
+                    <p class="text-gray-600 mb-6">解答你在使用过程中可能遇到的问题</p>
+                    <a href="https://sites.google.com/view/artaleqa/%E4%B8%80%E4%BA%9B%E5%BE%88%E8%AE%9A%E7%9A%84%E7%B6%B2%E9%A0%81?authuser=0"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>查看常见问题
+                    </a>
+                </div>
+            </div>
+
+            <!-- 亚服官网 -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-gamepad"></i>
+                        亚服官网
+                    </h2>
+                    <p class="text-gray-600 mb-6">亚服官网</p>
+                    <a href="https://maplestoryworlds.nexon.com/zh-tw/play/cabbc2ce91844c79989b18931fe492fe/"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>点击前往
+                    </a>
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-question-circle"></i>
+                        官方支援中心
+                    </h2>
+                    <p class="text-gray-600 mb-6">举报,投诉,申诉的地方</p>
+                    <a href="https://ubiquitous-argument-a46.notion.site/Artale-World-1d91e27b93ba80238e6ed8931f2b642c"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>官方支援中心
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-question-circle"></i>
+                        命中率计算器
+                    </h2>
+                    <p class="text-gray-600 mb-6">命中率计算器工具</p>
+                    <a href="https://a2983456456.github.io/Maple-ACC-calculator/"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>命中率计算器
+                    </a>
+                </div>
+            </div>
+
+            
+
+             <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-question-circle"></i>
+                        三转题库参考
+                    </h2>
+                    <p class="text-gray-600 mb-6">三转题库参考</p>
+                    <a href="https://home.gamer.com.tw/artwork.php?sn=6145561"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>三转题库参考
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-question-circle"></i>
+                        物价表相关
+                    </h2>
+                    <p class="text-gray-600 mb-6">商城,道具物价表相关参考</p>
+                    <a href="https://docs.google.com/spreadsheets/d/16em3bVfF98HEwrrAgDa9retcHvxWZ0xL9NtQMWXWMlI/edit?gid=0#gid=0"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>商城道具物价表
+                    </a>
+                    <hr>
+                    <a href="https://docs.google.com/spreadsheets/u/1/d/1QPUvWV5HOx53IZ7Ft7FRd9hQkIg4mdGhUPnA_7for1E/htmlview"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i>道具物价表
+                    </a>
+                </div>
+            </div>
+           
+           
+           <div class="card">
+                <div class="p-6">
+                    <h2 class="section-title">
+                        <i class="fa fa-question-circle"></i>
+                         卷抽商人贩卖表
+                    </h2>
+                    <p class="text-gray-600 mb-6"> 卷抽商人贩卖表</p>
+                    <a href="https://forum.gamer.com.tw/C.php?bsn=79354&snA=797&tnum=3&bPage=2"
+                        target="_blank"
+                        class="w-full block text-center py-3 px-4 bg-primary text-white font-medium rounded-lg transition-all duration-300 btn-shadow hover:btn-hover">
+                        <i class="fa fa-search mr-2"></i> 卷抽商人贩卖表
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- 页脚 -->
+        <footer class="mt-16 text-center text-gray-500 text-sm">
+            <p>© 2025 Artale 相关链接平台. 保留所有权利.</p>
+        </footer>
+    </div>
+
+
+</body>
+<script>
+    // 计算并显示稳定运行天数
+    function calculateUptimeDays() {
+        // 设置固定的起始日期 - 这里设置为2025年6月6日
+        const startDate = new Date('2025-06-06');
+        const currentDate = new Date();
+        
+        // 计算天数差
+        const timeDiff = currentDate - startDate;
+        const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        
+        // 更新链接文本中的天数
+        const daysElement = document.getElementById('uptime-days');
+        if (daysElement) {
+            daysElement.textContent = `本人使用开通会员后稳定运行第${daysDiff}天`;
+        }
+    }
+
+    // 页面加载时计算并更新运行天数
+    document.addEventListener('DOMContentLoaded', calculateUptimeDays);
+</script>
 </html>
